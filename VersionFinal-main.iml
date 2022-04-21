@@ -9,5 +9,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="ImplementaciónDeHotel" level="project" />
     <orderEntry type="library" name="pruebas" level="project" />
+    <orderEntry type="library" name="HotelImplementacionExamen" level="project" />
   </component>
 </module>

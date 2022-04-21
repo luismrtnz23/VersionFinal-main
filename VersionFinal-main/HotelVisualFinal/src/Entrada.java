@@ -6,6 +6,12 @@ import java.io.*;
 import pC05.*;
 
 public class Entrada extends JFrame implements Serializable {
+    private JButton dni;
+    private JPanel ventanaEmergente;
+    private JTextField noReservas;
+
+
+
     private JPanel panel1;
     private JButton cancelarButton;
     private JButton limpiarButton;
@@ -256,16 +262,29 @@ public class Entrada extends JFrame implements Serializable {
             }
         });
     }
-}
-
-/*
-Como hacer el .jar
-
-File - Proyect Structure - Artefactos - + - From modules with... - OK - OK - Build - Construir Artefctos - Construir
-Carpeta del .jar - buscar el .jar - copiarlo y pegarlo en la carpeta del Swing - En intellij, click derecho y añadir como libreria
-import el paquete de las clases
 
 
-Para los commits
-Boton del commit - ponerle nombre - commit lo que quiera - commit anyways - darle al push una vez hechos los cambios
- */
+    public void actionPerformed(ActionEvent e){
+        if(dni.isSelected()) {
+            Cliente c = new Cliente();
+            if (h.estaHotel(c, Integer.parseInt(dni.getText()))) {
+                c.setNombre(textField1.getText());
+                c.setApellido(textField2.getText());
+                c.setTelefono(Integer.parseInt(textField4.getText()));
+                c.setNumTarjeta(Integer.parseInt(textField8.getText()));
+                c.setFechaEntrada(Integer.parseInt(textField5.getText()));
+                c.setFechaSalida(Integer.parseInt(textField6.getText()));
+            }else{
+                setContentPane(ventanaEmergente);
+                setBounds(125,50,500,300);
+                setVisible(false);
+                setTitle("Error");
+                noReservas.setText("No tiene reservas en el hotel");
+            }
+        }
+        }
+
+
+    }
+
+
